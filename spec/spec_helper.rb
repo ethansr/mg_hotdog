@@ -19,4 +19,8 @@ def mock_message_and_robot
         @message.stub(:user).and_return(@user)
 end
 
+def stub_gist_request
+  @message.stub(:body).and_return('gist me!')
+
+end
 
