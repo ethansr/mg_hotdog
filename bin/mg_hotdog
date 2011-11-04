@@ -19,7 +19,7 @@ robot.parts << PabloPart.new
 while true
 	begin
 		robot.wake_up
-	rescue  e
+	rescue  
 		puts "ROBOT DIED #{$!.message}"
 	end
 end
