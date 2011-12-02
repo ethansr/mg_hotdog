@@ -17,6 +17,8 @@ def mock_message_and_robot
 
         @message = double()
         @message.stub(:user).and_return(@user)
-end
 
+        @db = double()
+        @robot.stub(:database).and_return(@db)
+end
 
