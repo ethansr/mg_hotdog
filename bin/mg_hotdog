@@ -8,6 +8,7 @@ require "mg_hotdog"
 require 'mg_hotdog/parts/hello_part'
 require 'mg_hotdog/parts/welcome_part'
 require 'mg_hotdog/parts/whatup_part'
+require 'mg_hotdog/parts/si_part'
 
 db = File.expand_path(File.dirname(__FILE__) + '/../db/mg_hotdog.sqlite')
 robot = MgHotdog::Robot.new(ENV["CAMPFIRE_ROOM"], db)
@@ -17,6 +18,8 @@ robot = MgHotdog::Robot.new(ENV["CAMPFIRE_ROOM"], db)
 robot.parts << HelloPart.new
 robot.parts << WhatupPart.new
 robot.parts << WelcomePart.new(robot)
+robot.parts << SiPart.new
+
 while true
 	begin
 		robot.wake_up
