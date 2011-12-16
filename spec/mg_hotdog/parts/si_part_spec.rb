@@ -20,4 +20,13 @@ describe SiPart do
 
     SiPart.new.process(@message, @robot)
   end
+
+  it "should not respond to si in the middle of a word" do
+    @message.stub(:body).and_return('since')
+
+    @robot.should_not_receive(:speak)
+
+    SiPart.new.process(@message, @robot)
+
+  end
 end
