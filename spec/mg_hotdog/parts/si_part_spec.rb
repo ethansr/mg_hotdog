@@ -8,7 +8,7 @@ describe SiPart do
 
   it 'should repeat "si"' do
     @message.stub(:body).and_return('si')
-    @message.stub(:user).and_return('Bob')
+    @message.stub_chain(:user, :name).and_return('Bob')
 
     @robot.should_receive(:speak).with(/si/)
     SiPart.new.process(@message,@robot)
@@ -16,7 +16,7 @@ describe SiPart do
 
   it "shouldn't repeat itself" do
     @message.stub(:body).and_return('si')
-    @message.stub(:user).and_return('MG HOTDOG')
+    @message.stub_chain(:user, :name).and_return('MG HOTDOG')
 
     @robot.should_not_receive(:speak)
 
@@ -25,7 +25,7 @@ describe SiPart do
 
   it "should not respond to si in the middle of a word" do
     @message.stub(:body).and_return('since')
-    @message.stub(:user).and_return('Bob')
+    @message.stub_chain(:user, :name).and_return('Bob')
 
     @robot.should_not_receive(:speak)
 

@@ -1,5 +1,9 @@
 class SiPart
   def process(message, robot)
-    robot.speak 'si' if message.body && message.body.match(/^si$/i) && !message.user.match(/MG HOTDOG/)
+    if message.body && 
+       message.body.match(/^si$/i) && 
+       !message.user.name.match(/MG HOTDOG/)
+      robot.speak( 'si')
+    end
   end
 end
