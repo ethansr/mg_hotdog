@@ -1,5 +1,5 @@
 class SiPart
   def process(message, robot)
-    robot.speak 'si' if /^si$/i =~ message.body && !(/MG HOTDOG/ =~ message.user)
+    robot.speak 'si' if message.body && message.body.match(/^si$/i) && !message.user.match(/MG HOTDOG/)
   end
 end
